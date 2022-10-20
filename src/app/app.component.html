@@ -1,0 +1,54 @@
+<div class="container-fluid text-center">
+  <h1 class="display-6 my-3">Enhanced Level Authentication System</h1>
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col mt-4">
+      <h1 class="h3 fw-normal">Sign up</h1>
+      <form [formGroup]="signUpForm">
+        <div class="form-floating">
+          <input type="text" class="form-control top" id="singup-username" placeholder="Username" formControlName="username" name="username">
+          <label for="signup-username">Username</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control rounded-0 border-top-0 border-bottom-0" id="signup-password" placeholder="Password" formControlName="password" name="password">
+          <label for="signup-password">Password</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control bottom" id="signup-key" placeholder="Secret Key" formControlName="key" name="key">
+          <label for="signup-key">Secret Key</label>
+        </div>
+      </form>
+      <button class="w-100 btn btn-lg btn-primary" type="button" (click)="signUp()" [disabled]="!signUpForm.valid">Sign in</button>
+    </div>
+    <div class="col mt-4">
+      <h1 class="h3 fw-normal">Login</h1>
+      <form [formGroup]="loginForm">
+        <div class="form-floating">
+          <input type="text" class="form-control top" id="username" placeholder="Username" formControlName="username" name="username">
+          <label for="username">Username</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control bottom border-top-0" id="password" placeholder="Password" formControlName="password" name="password">
+          <label for="password">Password</label>
+        </div>
+      </form>
+      <button class="w-100 btn btn-lg btn-primary" type="button" (click)="login()" [disabled]="!loginForm.valid">Login</button>
+    </div>
+    <div class="col mt-4">
+      <h1 class="h3 fw-normal">Authenticate</h1>
+      <form class="d-flex" [formGroup]="authenticationForm">
+        <div class="form-floating w-50">
+          <input type="password" class="form-control left border-end-0" id="key" placeholder="Secret Key" formControlName="key" name="key">
+          <label for="key">Secret Key</label>
+        </div>
+        <div class="form-floating w-50">
+          <input type="text" class="form-control right" id="otp" placeholder="OTP" formControlName="otp" name="otp">
+          <label for="otp">OTP</label>
+        </div>
+      </form>
+      <button class="w-100 btn btn-lg my-4 btn-outline-primary" type="button" (click)="generateNewOTP()">Generate OTP</button>
+      <button class="w-100 btn btn-lg btn-primary" type="button" (click)="authenticate()" [disabled]="!authenticationForm.valid">OK</button>
+    </div>
+  </div>
+  <hr class="my-5">
+  <p class="display-2">{{ message }}</p>
+</div>
